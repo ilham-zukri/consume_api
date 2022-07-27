@@ -1,3 +1,4 @@
+import 'package:consume_api/get_page.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -27,7 +28,11 @@ class _MainPageState extends State<MainPage> {
                 height: height / 10,
                 width: width,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      return const GetPage();
+                    },));
+                  },
                   child: Text('GET'),
                 ),
               ),Container(
