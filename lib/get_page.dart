@@ -25,7 +25,7 @@ class _GetPageState extends State<GetPage> {
         child: Center(
           child: Column(
             children: [
-              (comment != null) ? CommentCard(comment: comment!) : Text('no data'),
+              (comment != null) ? CommentCard(comment: comment!) : Text('waiting for response......'),
               Container(
                 margin: EdgeInsets.only(top: 8,),
                 width: 75,
