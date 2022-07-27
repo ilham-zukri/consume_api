@@ -16,12 +16,9 @@ class _GetPageState extends State<GetPage> {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    var height = size.height;
-    var width = size.width;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Get_Page'),
+        title: Text('GET_PAGE'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

@@ -12,7 +12,7 @@ abstract class Services {
     }
     catch(e){
       throw Exception(e.toString());
-    };
+    }
   }
   static Future<Comment?> createComment(
       int postId, String name, String email, String body) async {
@@ -23,13 +23,13 @@ abstract class Services {
         'email':email,
         'body':body
       });
-      if(response.statusCode == 200){
+      if(response.statusCode == 201){
         return Comment(id: response.data['id'], name: response.data['name'], email: response.data['email'], body: response.data['body'],postId: response.data['postId']);
       }
       return null;
     }
     catch(e){
-
+      throw Exception(e.toString());
     }
   }
 }

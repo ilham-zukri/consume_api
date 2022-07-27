@@ -1,4 +1,5 @@
 import 'package:consume_api/get_page.dart';
+import 'package:consume_api/post_page.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -16,7 +17,7 @@ class _MainPageState extends State<MainPage> {
     var width = size.width;
     return Scaffold(
       appBar: AppBar(
-        title: Text('API Consuimng'),
+        title: Text('API Consuming'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -29,21 +30,37 @@ class _MainPageState extends State<MainPage> {
                 width: width,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return const GetPage();
-                    },));
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const GetPage();
+                        },
+                      ),
+                    );
                   },
                   child: Text('GET'),
                 ),
-              ),Container(
+              ),
+              Container(
                 height: height / 10,
                 width: width,
                 margin: EdgeInsets.only(top: 8),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const PostPage();
+                        },
+                      ),
+                    );
+                  },
                   child: Text('POST'),
                 ),
-              ),Container(
+              ),
+              Container(
                 height: height / 10,
                 width: width,
                 margin: EdgeInsets.only(top: 8),
@@ -51,7 +68,8 @@ class _MainPageState extends State<MainPage> {
                   onPressed: () {},
                   child: Text('UPDATE'),
                 ),
-              ),Container(
+              ),
+              Container(
                 height: height / 10,
                 width: width,
                 margin: EdgeInsets.only(top: 8),

@@ -8,7 +8,6 @@ class CommentCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    var height = size.height;
     var width = size.width;
     return Column(
       children: [
@@ -70,6 +69,19 @@ class CommentCard extends StatelessWidget {
                     )
                   ],
                 ),
+                (comment.postId != null)? TableRow(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(2),
+                      child: Text('postId:'),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(2),
+                      child: Text(
+                          comment.postId.toString()),
+                    )
+                  ],
+                ) : TableRow(children: [Text(''), Text('')])
               ],
             ),
           ),
