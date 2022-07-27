@@ -1,4 +1,5 @@
 import 'package:consume_api/get_page.dart';
+import 'package:consume_api/patch_page.dart';
 import 'package:consume_api/post_page.dart';
 import 'package:flutter/material.dart';
 
@@ -65,8 +66,12 @@ class _MainPageState extends State<MainPage> {
                 width: width,
                 margin: EdgeInsets.only(top: 8),
                 child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text('UPDATE'),
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      return const PatchPage();
+                    },));
+                  },
+                  child: Text('PATCH'),
                 ),
               ),
               Container(
@@ -76,6 +81,15 @@ class _MainPageState extends State<MainPage> {
                 child: ElevatedButton(
                   onPressed: () {},
                   child: Text('DELETE'),
+                ),
+              ),
+              Container(
+                height: height / 10,
+                width: width,
+                margin: EdgeInsets.only(top: 8),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text('PUT'),
                 ),
               ),
             ],
