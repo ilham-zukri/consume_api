@@ -10,6 +10,7 @@ abstract class Services {
       if (response.statusCode == 200) {
         return Comment(
             id: response.data['id'],
+            postId: response.data['postId'],
             name: response.data['name'],
             email: response.data['email'],
             body: response.data['body']);
@@ -44,15 +45,15 @@ abstract class Services {
     try {
       var response;
       if (name != null) {
-        response = await Dio().patch(path+id.toString(), data: {
+        response = await Dio().patch(path + id.toString(), data: {
           'name': name,
         });
       } else if (email != null) {
-        response = await Dio().patch(path+id.toString(), data: {
+        response = await Dio().patch(path + id.toString(), data: {
           'email': email,
         });
       } else if (body != null) {
-        response = await Dio().patch(path+id.toString(), data: {
+        response = await Dio().patch(path + id.toString(), data: {
           'body': body,
         });
       }
@@ -68,15 +69,40 @@ abstract class Services {
       throw Exception(e.toString());
     }
   }
-  static Future<bool?> deleteComment(int id) async{
-    try{
-      var response = await Dio().delete(path+id.toString());
 
-      if(response.statusCode == 200) {
+  static Future<bool?> deleteComment(int id) async {
+    try {
+      var response = await Dio().delete(path + id.toString());
+
+      if (response.statusCode == 200) {
         return true;
       }
       return false;
-    } catch(e) {
+    } catch (e) {
+      throw Exception(e.toString());
+    }
+  }
+
+  static Future<Comment?> putComment(
+      int id, int postId, String name, String email, String body) async {
+    try {
+      var response = await Dio().put(path + id.toString(), data: {
+        'id': id,
+        'postId': postId,
+        'name': name,
+        'email': email,
+        'body': body
+      });
+      if (response.statusCode == 200) {
+        return Comment(
+            id: response.data['id'],
+            name: response.data['name'],
+            email: response.data['email'],
+            body: response.data['body'],
+            postId: response.data['postId']);
+      }
+      return null;
+    } catch (e) {
       throw Exception(e.toString());
     }
   }
