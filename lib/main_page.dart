@@ -1,3 +1,4 @@
+import 'package:consume_api/delete_page.dart';
 import 'package:consume_api/get_page.dart';
 import 'package:consume_api/patch_page.dart';
 import 'package:consume_api/post_page.dart';
@@ -22,8 +23,8 @@ class _MainPageState extends State<MainPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Center(
-          child: Column(
+        child: ListView(children: [
+          Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
@@ -67,9 +68,11 @@ class _MainPageState extends State<MainPage> {
                 margin: EdgeInsets.only(top: 8),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return const PatchPage();
-                    },));
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const PatchPage();
+                      },
+                    ));
                   },
                   child: Text('PATCH'),
                 ),
@@ -79,7 +82,13 @@ class _MainPageState extends State<MainPage> {
                 width: width,
                 margin: EdgeInsets.only(top: 8),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return DeletePage();
+                      },
+                    ));
+                  },
                   child: Text('DELETE'),
                 ),
               ),
@@ -94,7 +103,7 @@ class _MainPageState extends State<MainPage> {
               ),
             ],
           ),
-        ),
+        ]),
       ),
     );
   }
