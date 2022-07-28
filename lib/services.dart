@@ -68,4 +68,16 @@ abstract class Services {
       throw Exception(e.toString());
     }
   }
+  static Future<bool?> deleteComment(int id) async{
+    try{
+      var response = await Dio().delete(path+id.toString());
+
+      if(response.statusCode == 200) {
+        return true;
+      }
+      return false;
+    } catch(e) {
+      throw Exception(e.toString());
+    }
+  }
 }
